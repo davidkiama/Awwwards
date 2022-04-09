@@ -20,79 +20,74 @@ body {
 :root {
   --color-primary-1: #49c5b6;
   --color-primary-2: #42ab9e;
-  --color-navy: #1c1419;
-  --color-secondary: #00a4ef;
-  --color-white: hsl(0, 0%, 100%);
-  --color-grey: #F4F7F6;
+  --color-black: #202121;
+  --color-white: #ffffff;
+  --color-grey: #f4f7f6;
 }
 
-.btn{
-    padding: 2rem ;
-    border: none;
+.btn {
+  padding: 2rem;
+  border: none;
 }
 
-
-.auth{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--color-grey);
+.icon {
+  height: 2.2rem;
+  width: 2.3rem;
 }
 
-
-.auth__bg{
-    width: 50%;
+.header {
+  display: flex;
+  height: 6rem;
 }
 
-.auth__box{
-    width: 40%;
-    margin: 0 auto;
-    padding: 2rem;
-   
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 9rem;
+  display: flex;
 }
 
+.box-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.auth__form label{
-    font-size: 2rem;
-    margin: 1rem 0;
+  border-left: 1px solid var(--color-black);
 }
 
-
-.auth__form p{ 
-    display: flex;
-    flex-direction: column;
+.icon--search {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 1rem;
 }
 
-.auth__form span{
-    /* Extra info from django auth */
-    display: none;
+.icon--logo {
+  height: 2rem;
+  margin: 0 auto;
 }
 
-.auth__form input{
-    padding: 1.5rem;
-    outline: none;
-    font-size: 2rem;
-    
-    border: 1px solid #dbe0df;
+.nav-profile {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
 }
 
-.auth__form:focus,
-.auth__form:active{
-    border: none;
-    background-color: #dbe0df;
+.nav-profile__name {
+  margin-right: 1rem;
+  font-family: "apercu", sans-serif;
 }
 
+.btn--submit {
+  text-decoration: none;
+  padding: 1rem;
+  height: 100%;
+  color: var(--color-white);
+  background-color: var(--color-black);
 
-.auth__btn{
-    font-size: 2rem;
-    width: 100%;
-    margin: 2rem auto;
-    background-color: var(--color-primary-1);
-
-    transform: all .5s;
-}
-
-.auth__btn:hover{
-    background-color: var(--color-primary-2);
+  /* Bring text to the center */
+  display: flex;
+  align-items: center;
 }
