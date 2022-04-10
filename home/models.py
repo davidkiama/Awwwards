@@ -15,5 +15,29 @@ class Profile(models.Model):
     def save_user(self):
         self.save()
 
-    def update_profile(self):
-        self.update()
+
+class Project(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    link = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='projects')
+    date_posted = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(max_length=100)
+    rating = models.IntegerField(default=0)
+
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
+    @classmethod
+    def get_projects(cls):
+        projects = cls.objects.all()
+        return projects
+
+    @classmethod
+    def search_projects(cls, search_term):
+        projects = cls.objects.filter(title__icontains=search_term)
+        return projects

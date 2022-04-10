@@ -42,3 +42,7 @@ def edit_profile(request):
         profile.save()
 
     return render(request, 'edit_profile.html', {'title': 'Edit Profile', 'profile': profile})
+
+
+def submit_project(request):
+    return render(request, 'submit_project.html', {'title': 'Submit Project'})

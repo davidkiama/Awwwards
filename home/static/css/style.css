@@ -27,8 +27,17 @@ body {
 }
 
 .btn {
-  padding: 2rem;
   border: none;
+  padding: 1rem;
+  height: 100%;
+  color: var(--color-white);
+  background-color: var(--color-black-1);
+
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--color-black-2);
 }
 
 .icon {
@@ -103,18 +112,34 @@ body {
 
 .btn--submit {
   text-decoration: none;
-  padding: 1rem;
-  height: 100%;
-  color: var(--color-white);
-  background-color: var(--color-black-1);
 
   /* Bring text to the center */
   display: flex;
   align-items: center;
-
-  transition: all 0.3s;
 }
 
-.btn--submit:hover {
-  background-color: var(--color-black-2);
+/* Project form */
+.form--project {
+  display: flex;
+  flex-direction: column;
+
+  width: 40%;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.form--project input,
+.form--project textarea {
+  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.158);
+  background-color: var(--color-grey);
+}
+
+.form--project input:active,
+.form--project input:focus,
+.form--project textarea:active,
+.form--project textarea:focus {
+  outline: none;
 }

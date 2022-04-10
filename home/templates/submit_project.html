@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+
+{% if title %}
+<title>{{ title }} - Awwwards</title>
+{% else %}
+<title>Awwwards</title>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<h1>Submit project</h1>
+
+<form enctype="multipart/form-data" method="post" class="form--project">
+    {% csrf_token %}
+    <label for="title">Project Title</label>
+    <input type="text" placeholder="project title..." name="title">
+
+
+    <label for="category">Category</label>
+    <input type="text" placeholder="category" name="category">
+
+    <label for="description">Description</label>
+    <textarea name="description" cols="30" rows="10"
+        placeholder="project description..."></textarea>
+
+    <label for="link">Project URL</label>
+    <input type="text" placeholder="https:://" name="link">
+
+
+    <label for="image">Project image</label>
+    <input type="file" name="image">
+
+    <button type="submit" class="btn">Submit</button>
+
+
+</form>
+
+
+{% endblock %}
