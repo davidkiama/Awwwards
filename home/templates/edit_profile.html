@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+
+{% if title %}
+<title>{{ title }} - Awwwards</title>
+{% else %}
+<title>Awwwards</title>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<h1>Edit profile</h1>
+
+<h1>
+    bio
+
+    {{profile.bio}}
+</h1>
+<form action="" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+
+    <input type="file" name="profile_pic">
+
+    <textarea name="bio_info" cols="30" rows="10" required>{{profile.bio}}</textarea>
+
+    <input type="submit" value="Update">
+</form>
+
+{% endblock %}

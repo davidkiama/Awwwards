@@ -12,8 +12,8 @@ class Profile(models.Model):
 
     bio = models.TextField(blank=True)
 
-    def __str__(self):
-        return (self.user.username)
-
     def save_user(self):
         self.save()
+
+    def update_profile(self):
+        self.update()
