@@ -39,19 +39,33 @@
                     </use>
                 </svg>
 
-                <svg class=" icon--logo">
-                    <use xlink:href="{%static 'img/sprite.svg'%}#awwwards-long">
-                    </use>
-                </svg>
+                <a href="{% url 'home' %} " class=" icon--logo">
+                    <svg>
+                        <use xlink:href="{%static 'img/sprite.svg'%}#awwwards-long">
+                        </use>
+                    </svg>
+                </a>
 
-                <div class="nav-profile">
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'profile' pk=user.id %} " class="nav-profile">
                     <h4 class="nav-profile__name">
                         David Kiama
                     </h4>
 
                     <img src="{% static 'img/profile.svg' %} " alt="Profile-img"
                         class="nav-profile__img">
+
+                </a>
+
+
+                {% else %}
+                <div class="nav-auth">
+                    <a href="{% url 'register' %}"> Register /</a>
+                    <a href="{% url 'login' %}">Login</a>
                 </div>
+
+                {% endif %}
 
                 <a href="#" class="btn--submit">Submit your site!</a>
             </div>
@@ -68,6 +82,9 @@
 
         <footer class="footer">
             <p>Footer</p>
+            <a href="{% url 'logout' %}" class="btn btn--primary">
+                logout
+            </a>
 
         </footer>
 

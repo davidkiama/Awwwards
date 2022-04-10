@@ -20,7 +20,8 @@ body {
 :root {
   --color-primary-1: #49c5b6;
   --color-primary-2: #42ab9e;
-  --color-black: #202121;
+  --color-black-1: #202121;
+  --color-black-2: #202121e6;
   --color-white: #ffffff;
   --color-grey: #f4f7f6;
 }
@@ -55,7 +56,7 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  border-left: 1px solid var(--color-black);
+  border-left: 1px solid var(--color-black-2);
 }
 
 .icon--search {
@@ -65,8 +66,28 @@ body {
 }
 
 .icon--logo {
-  height: 2rem;
   margin: 0 auto;
+}
+
+.icon--logo svg {
+  height: 2rem;
+}
+
+.nav-auth {
+  margin-right: 2rem;
+}
+
+.nav-auth a {
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-black-1);
+
+  transition: all 0.3s;
+}
+
+.nav-auth a:hover {
+  color: #64686a;
 }
 
 .nav-profile {
@@ -85,9 +106,15 @@ body {
   padding: 1rem;
   height: 100%;
   color: var(--color-white);
-  background-color: var(--color-black);
+  background-color: var(--color-black-1);
 
   /* Bring text to the center */
   display: flex;
   align-items: center;
+
+  transition: all 0.3s;
+}
+
+.btn--submit:hover {
+  background-color: var(--color-black-2);
 }
