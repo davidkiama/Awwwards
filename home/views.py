@@ -6,7 +6,8 @@ from .models import Profile, Project
 
 
 def home(request):
-    return render(request, 'index.html', {'title': 'Home'})
+    projects = Project.get_projects()
+    return render(request, 'index.html', {'title': 'Home', 'projects': projects})
 
 
 def profile(request, pk):
