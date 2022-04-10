@@ -28,7 +28,7 @@ body {
 
 .btn {
   border: none;
-  padding: 1rem;
+  padding: 1.5rem;
   height: 100%;
   color: var(--color-white);
   background-color: var(--color-black-1);
@@ -137,9 +137,19 @@ body {
   background-color: var(--color-grey);
 }
 
+/* Image input to NOT have a border */
+#form--project__img {
+  border: none;
+  background-color: #fff;
+}
+
 .form--project input:active,
 .form--project input:focus,
 .form--project textarea:active,
 .form--project textarea:focus {
   outline: none;
+}
+
+.form--project button {
+  font-size: 2rem;
 }
