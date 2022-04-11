@@ -2,7 +2,7 @@ const projects = document.querySelector(".projects");
 
 // Loop and in each iteration render an image randomly
 // step maxValue is the numbers of images to render
-for (let step = 0; step < 15; step++) {
+for (let step = 0; step < 8; step++) {
   let imgInd = Math.floor(Math.random() * 12) + 1;
 
   const projectHTML = `

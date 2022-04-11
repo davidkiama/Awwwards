@@ -21,7 +21,7 @@ body {
   --color-primary-1: #49c5b6;
   --color-primary-2: #42ab9e;
   --color-black-1: #202121;
-  --color-black-2: #202121e6;
+  --color-black-2: rgba(32, 33, 33, 0.902);
   --color-white: #ffffff;
   --color-grey: #f4f7f6;
 }
@@ -32,6 +32,7 @@ body {
   height: 100%;
   color: var(--color-white);
   background-color: var(--color-black-1);
+  text-decoration: none;
 
   transition: all 0.3s;
 }
@@ -108,9 +109,12 @@ body {
   display: flex;
   align-items: center;
   margin-right: 2rem;
+  text-decoration: none;
+  color: var(--color-black-1);
 }
 
 .nav-profile__name {
+  font-size: 1.8rem;
   margin-right: 1rem;
   font-family: "apercu", sans-serif;
 }
@@ -121,6 +125,10 @@ body {
   /* Bring text to the center */
   display: flex;
   align-items: center;
+}
+
+.main {
+  min-height: 90vh;
 }
 
 /* Project form */
@@ -157,4 +165,33 @@ body {
 
 .form--project button {
   font-size: 2rem;
+}
+
+.btn--edit-profile {
+  margin-left: 2rem;
+}
+
+.footer {
+  position: relative;
+}
+
+.btn--logout {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+
+  display: flex;
+  align-items: center;
+  height: min-content;
+
+  transition: all 0.4s;
+}
+
+.btn--logout img {
+  height: 2.3rem;
+  margin-right: 1rem;
+}
+
+.btn--logout:hover {
+  color: rgba(255, 0, 0, 0.815);
 }

@@ -19,8 +19,10 @@ def home(request):
 
 
 def profile(request, pk):
-    profile = User.objects.get(id=pk)
-    return render(request, 'profile.html', {'title': 'Profile', 'profile': profile})
+    profile = Profile.objects.get(id=pk)
+    print(profile.user.username)
+    projects = Project.objects.filter(user=profile)
+    return render(request, 'profile.html', {'title': 'Profile', 'profile': profile, 'projects': projects})
 
 
 # Helper function to create profile
