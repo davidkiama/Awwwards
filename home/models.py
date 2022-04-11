@@ -8,16 +8,19 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(
-        upload_to='profile_pics', default='profile_pics/default.jpg')
+        upload_to='profile_pics', default='profile_pics/default.svg')
 
     bio = models.TextField(blank=True)
 
     def save_user(self):
         self.save()
 
+    def __str__(self):
+        return self.user.username
+
 
 class Project(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
     link = models.CharField(max_length=100)

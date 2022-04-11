@@ -22,9 +22,8 @@ def profile(request, pk):
     return render(request, 'profile.html', {'title': 'Profile', 'profile': profile})
 
 
-def edit_profile(request):
-    user = request.user
-    # Test if profile is created
+# Helper function to create profile
+def create_profile(user):
     try:
         # If profile is created, get the profile
         profile = Profile.objects.get(user=user)
@@ -32,6 +31,14 @@ def edit_profile(request):
         # If profile is not created, create a new profile
         profile = Profile(user=user)
         profile.save_user()
+
+    return profile
+
+
+def edit_profile(request):
+    user = request.user
+    # Test if profile is created
+    profile = create_profile(user)
 
     if request.method == 'POST':
         bio = request.POST['bio_info']
@@ -53,6 +60,7 @@ def edit_profile(request):
 
 def submit_project(request):
     user = request.user
+    profile = create_profile(user)
     if request.method == 'POST':
         title = request.POST['title']
         description = request.POST['description']
@@ -62,7 +70,7 @@ def submit_project(request):
         rating = 0
 
         project = Project(title=title, description=description,
-                          link=link, image=image, category=category, rating=rating, user=user)
+                          link=link, image=image, category=category, rating=rating, user=profile)
         project.save_project()
 
     return render(request, 'submit_project.html', {'title': 'Submit Project'})
