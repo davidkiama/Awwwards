@@ -27,7 +27,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='projects')
     date_posted = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=100)
-    rating = models.IntegerField(default=0)
+    rating = models.DecimalField(default=0, decimal_places=1, max_digits=3)
 
     def save_project(self):
         self.save()

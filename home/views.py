@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import json
 from django.contrib.auth.models import User
 from .models import Profile, Project
 
@@ -82,9 +83,17 @@ def project_detail(request, pk):
 
 
 def rate_project(request, pk):
-    project = Project.objects.get(id=pk)
-    project.rating = 4
-    project.save_project()
+    if request.method == 'POST':
+        print('***********************************************')
+        rating = json.loads(request.body)['rating']
+        id = json.loads(request.body)['pk']
+        project = Project.objects.get(id=id)
+        project.rating = float(rating)
+        project.save_project()
+
+    return render(request, 'project_detail.html', {'title': 'Project Detail'})
+
+    # print(project.rating)
 
 
 class ProjectViewSet(viewsets.ModelViewSet):

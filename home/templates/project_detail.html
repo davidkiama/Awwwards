@@ -23,6 +23,7 @@
     </div>
     <div class="project-det__info">
         <div class="project-det__rating">
+            {% csrf_token %}
             <div class="rating">
                 <h4 class="heading-4">Design</h4>
                 <span class="design">
@@ -127,8 +128,9 @@
                         contentRating = rating
                     }
 
-                    overallRating = ((designRating + usabilityRating + contentRating) / 3) * 2;
-                    projectRating.innerHTML = overallRating.toFixed(1);
+                    overallRating = (((designRating + usabilityRating + contentRating) / 3) * 2).toFixed(1);
+                    projectRating.innerHTML = overallRating;
+                    updateDatabase(overallRating);
 
                 });
             })
@@ -139,6 +141,29 @@
         styleIcons(usabilityIcons);
         styleIcons(contentIcons);
 
+
+        const updateDatabase = function (rating) {
+            const id = '{{project.id}}'
+            console.log('{{csrf_token}}');
+
+            fetch(`/rate-project/${id}`, {
+                // Adding method type
+                method: "POST",
+
+                // Adding body or contents to send
+                body: JSON.stringify({
+                    pk: id,
+                    rating: rating,
+                }),
+
+                // Adding headers to the request
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    "X-CSRFToken": '{{csrf_token}}'
+                },
+            })
+
+        }
 
 
 
