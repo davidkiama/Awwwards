@@ -12,21 +12,18 @@
 {% endblock %}
 
 {% block content %}
-<h1>Edit profile</h1>
 
-<h1>
-    bio
 
-    {{profile.bio}}
-</h1>
-<form action="" enctype="multipart/form-data" method="post">
+<form action="" enctype="multipart/form-data" method="post" class="form--edit-profile">
     {% csrf_token %}
+    <h4>Edit profile</h4>
 
+    <label for="file">Change profile</label>
     <input type="file" name="profile_pic">
 
-    <textarea name="bio_info" cols="30" rows="10" required>{{profile.bio}}</textarea>
+    <textarea name="bio_info" required placeholder="bio...">{{profile.bio}}</textarea>
 
-    <input type="submit" value="Update">
+    <button type="submit" class="btn">Update </button>
 </form>
 
 {% endblock %}
