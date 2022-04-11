@@ -45,9 +45,14 @@ body {
   width: 2.3rem;
 }
 
+#container {
+  background-color: var(--color-grey);
+}
+
 .header {
   display: flex;
   height: 6rem;
+  background-color: var(--color-white);
 }
 
 .menu {

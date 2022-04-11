@@ -11,11 +11,11 @@ for (let step = 0; step < 15; step++) {
         <img src="static/img/gal-${imgInd}.jpg" alt="Project image"
             class="project__img">
     </div>
-    <div>
+    <div class="project__info">
         <h2 class="project__title">title</h2>
         <p class="project__description">description</p>
         <span class="project__footer">
-            <img src="#" alt="User img">
+            <img src="static/img/gal-${imgInd}.jpg" alt="User img">
             <p>By David Kiama</p>
         </span>
     </div>
