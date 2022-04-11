@@ -59,3 +59,8 @@ def submit_project(request):
         project.save_project()
 
     return render(request, 'submit_project.html', {'title': 'Submit Project'})
+
+
+def project_detail(request, pk):
+    project = Project.objects.get(id=pk)
+    return render(request, 'project_detail.html', {'title': 'Project Detail', 'project': project})
