@@ -68,15 +68,28 @@ WSGI_APPLICATION = 'awwwards.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# DATABASES = {
+# #     'default': {
+# #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+# #         'NAME': 'Awwwards',
+# #         'USER': 'kiama',
+# #         'PASSWORD': 'kiamapwd',
+# #         'HOST': 'localhost',
+# #     }
+# # }
 
+# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# postgres://cbvfupibjxrrvt:ba6626a05c974ea3802419320eeeec245f72f86cb2b09f3d4ee518687ab09563@ec2-44-194-4-127.compute-1.amazonaws.com:5432/de8mnrpjb6qjrb
+
+#
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Awwwards',
-        'USER': 'kiama',
-        'PASSWORD': 'kiamapwd',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'de8mnrpjb6qjrb',
+        'USER': 'cbvfupibjxrrvt',
+        'PASSWORD': 'ba6626a05c974ea3802419320eeeec245f72f86cb2b09f3d4ee518687ab09563',
+        'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',
+        'PORT': 5423
     }
 }
 
