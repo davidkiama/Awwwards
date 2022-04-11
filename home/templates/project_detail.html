@@ -104,6 +104,7 @@
         let overallRating = 0
 
 
+        const projectRating = document.querySelector('.project-det__score');
         const styleIcons = function (iconList) {
             iconList.forEach((icon, index) => {
                 icon.addEventListener('click', () => {
@@ -127,7 +128,8 @@
                     }
 
                     overallRating = ((designRating + usabilityRating + contentRating) / 3) * 2;
-                    console.log(overallRating.toFixed(1))
+                    projectRating.innerHTML = overallRating.toFixed(1);
+
                 });
             })
 
