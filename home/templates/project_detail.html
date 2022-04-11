@@ -19,7 +19,7 @@
 <h1>Project Detail </h1>
 <div class="project-det">
     <div class="project-det__bg">
-        <img src="" alt="Project image" class="project-det__img">
+        <img src="{{project.image.url}} " alt="Project image" class="project-det__img">
     </div>
     <div class="project-det__info">
         <div class="project-det__rating">
@@ -53,11 +53,6 @@
         {{project.rating}}
     </span>
     <script>
-
-        let imgInd = Math.floor(Math.random() * 12) + 1;
-        const image = document.querySelector('.project-det__img');
-        image.src = `../../static/img/gal-${imgInd}.jpg`
-
 
 
         // add rating stars to the page
