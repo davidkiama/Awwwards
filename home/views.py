@@ -2,6 +2,13 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from .models import Profile, Project
 
+
+from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
+
+from .serializers import ProjectSerializer, ProfileSerializer
+
 # Create your views here.
 
 
@@ -64,3 +71,33 @@ def submit_project(request):
 def project_detail(request, pk):
     project = Project.objects.get(id=pk)
     return render(request, 'project_detail.html', {'title': 'Project Detail', 'project': project})
+
+
+def rate_project(request, pk):
+    project = Project.objects.get(id=pk)
+    project.rating = 4
+    project.save_project()
+
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+    def post(self, request, format=None):
+        serializers = ProjectSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+    def post(self, request, format=None):
+        serializers = ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
